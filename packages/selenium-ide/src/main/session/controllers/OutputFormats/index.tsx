@@ -1,21 +1,6 @@
-import CSharpNUnit from '@seleniumhq/code-export-csharp-nunit'
-import CSharpXUnit from '@seleniumhq/code-export-csharp-xunit'
-import JavaJunit from '@seleniumhq/code-export-java-junit'
-import JavascriptMocha from '@seleniumhq/code-export-javascript-mocha'
-import PythonPytest from '@seleniumhq/code-export-python-pytest'
-import RubyRSpec from '@seleniumhq/code-export-ruby-rspec'
 import kebabCase from 'lodash/fp/kebabCase'
 import { fileWriter, LanguageEmitter } from 'side-code-export'
 import BaseController from '../Base'
-
-const builtinFormats = [
-  CSharpNUnit,
-  CSharpXUnit,
-  JavaJunit,
-  JavascriptMocha,
-  PythonPytest,
-  RubyRSpec,
-]
 
 /**
  * This just contains a list of menus in the folder
@@ -25,7 +10,7 @@ export default class OutputFormatsController extends BaseController {
   customFormats: LanguageEmitter[] = []
   getFormats() {
     return this.customFormats
-      .concat(builtinFormats)
+      .concat()
       .map((format) => format?.opts?.name)
   }
   async registerFormat(format: never) {
@@ -39,10 +24,7 @@ export default class OutputFormatsController extends BaseController {
   }
   async exportSuiteToFormat(formatName: string, suiteID: string) {
     const format: LanguageEmitter =
-      this.customFormats.find((f) => f?.opts.name === formatName) ||
-      (builtinFormats.find(
-        (f) => f?.opts.name === formatName
-      ) as LanguageEmitter)
+      this.customFormats.find((f) => f?.opts.name === formatName) as LanguageEmitter
     if (!format) throw new Error(`Format ${formatName} not found`)
     const project = await this.session.projects.getActive()
     const suiteName = project.suites.find((s) => s.id === suiteID)?.name!
@@ -61,10 +43,7 @@ export default class OutputFormatsController extends BaseController {
   }
   async exportTestToFormat(formatName: string, testID: string) {
     const format: LanguageEmitter =
-      this.customFormats.find((f) => f?.opts.name === formatName) ||
-      (builtinFormats.find(
-        (f) => f?.opts.name === formatName
-      ) as LanguageEmitter)
+      this.customFormats.find((f) => f?.opts.name === formatName)  as LanguageEmitter
     if (!format) throw new Error(`Format ${formatName} not found`)
     const project = await this.session.projects.getActive()
     const testName = project.tests.find((t) => t.id === testID)!.name
