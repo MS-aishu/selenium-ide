@@ -17,7 +17,6 @@ import ProjectsController from './session/controllers/Projects'
 import RecorderController from './session/controllers/Recorder'
 import ResizablePanelsController from './session/controllers/ResizablePanels'
 import StateController from './session/controllers/State'
-import SuitesController from './session/controllers/Suites'
 import SystemController from './session/controllers/System'
 import TestsController from './session/controllers/Tests'
 import WindowsController from './session/controllers/Windows'
@@ -57,7 +56,6 @@ export interface Session {
   resizablePanels: ResizablePanelsController
   state: StateController
   store: Storage
-  suites: SuitesController
   system: SystemController
   tests: TestsController
   windows: WindowsController

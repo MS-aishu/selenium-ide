@@ -8,7 +8,6 @@ import { type Shape as Projects } from '../commands/projects'
 import { type Shape as Recorder } from '../commands/recorder'
 import { type Shape as ResizablePanels } from '../commands/resizable-panels'
 import { type Shape as State } from '../commands/state'
-import { type Shape as Suites } from '../commands/suites'
 import { type Shape as System } from '../commands/system'
 import { type Shape as Tests } from '../commands/tests'
 import { type Shape as Windows } from '../commands/windows'
@@ -27,7 +26,6 @@ export type Api = {
   recorder: Recorder
   resizablePanels: ResizablePanels
   state: State
-  suites: Suites
   system: System
   tests: Tests
   windows: Windows

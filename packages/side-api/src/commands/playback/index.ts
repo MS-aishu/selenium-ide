@@ -7,7 +7,6 @@ import type { Shape as OnStepUpdate } from './onStepUpdate'
 import type { Shape as Pause } from './pause'
 import type { Shape as PerformCommand } from './performCommand'
 import type { Shape as Play } from './play'
-import type { Shape as PlaySuite } from './playSuite'
 import type { Shape as Resume } from './resume'
 import type { Shape as Stop } from './stop'
 
@@ -20,7 +19,6 @@ import * as onStepUpdate from './onStepUpdate'
 import * as pause from './pause'
 import * as performCommand from './performCommand'
 import * as play from './play'
-import * as playSuite from './playSuite'
 import * as resume from './resume'
 import * as stop from './stop'
 
@@ -34,7 +32,6 @@ export const commands = {
   pause,
   performCommand,
   play,
-  playSuite,
   resume,
   stop,
 }
@@ -52,7 +49,6 @@ export type Shape = {
   pause: Pause
   performCommand: PerformCommand
   play: Play
-  playSuite: PlaySuite
   resume: Resume
   stop: Stop
 }

@@ -9,7 +9,6 @@ import { commands as projects } from './commands/projects'
 import { commands as recorder } from './commands/recorder'
 import { commands as resizablePanels } from './commands/resizable-panels'
 import { commands as state } from './commands/state'
-import { commands as suites } from './commands/suites'
 import { commands as system } from './commands/system'
 import { commands as tests } from './commands/tests'
 import { commands as windows } from './commands/windows'
@@ -25,7 +24,6 @@ export interface ApiHoist extends BaseApi {
   recorder: typeof recorder
   resizablePanels: typeof resizablePanels
   state: typeof state
-  suites: typeof suites
   system: typeof system
   tests: typeof tests
   windows: typeof windows
@@ -42,7 +40,6 @@ export const api: ApiHoist = {
   recorder,
   resizablePanels,
   state,
-  suites,
   system,
   tests,
   windows,
