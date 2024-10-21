@@ -1,6 +1,6 @@
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import fs from 'fs'
-import CopyWebpackPlugin from 'copy-webpack-plugin'
+// import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import kebabCase from 'lodash/fp/kebabCase'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
@@ -87,7 +87,6 @@ const commonConfig: Pick<
 // Our renderer and preload files
 const windowData = fs
   .readdirSync(path.join(__dirname, 'src', 'browser', 'windows'))
-  .filter((filename) => filename !== 'PlaybackWindowBidi')
   .map((filename) => [
     kebabCase(filename),
     path.join(__dirname, 'src', 'browser', 'windows', filename),
@@ -137,52 +136,50 @@ const rendererConfig: Configuration = {
   target: 'electron-renderer',
 }
 
-const playbackPreloadBidiConfig: Configuration = {
-  ...commonConfig,
-  entry: {
-    'playback-window-bidi-preload': path.join(
-      __dirname,
-      'src',
-      'browser',
-      'windows',
-      'PlaybackWindowBidi',
-      'preload.ts'
-    ),
-  },
-  plugins: commonPlugins,
-  target: 'web',
-}
+// const playbackPreloadBidiConfig: Configuration = {
+//   ...commonConfig,
+//   entry: {
+//     'playback-window-bidi-preload': path.join(
+//       __dirname,
+//       'src',
+//       'browser',
+//       'windows',
+//       'preload.ts'
+//     ),
+//   },
+//   plugins: commonPlugins,
+//   target: 'web',
+// }
 
-const playbackRendererBidiConfig: Configuration = {
-  ...commonConfig,
-  entry: {
-    'playback-window-bidi-renderer': path.join(
-      __dirname,
-      'src',
-      'browser',
-      'windows',
-      'PlaybackWindowBidi',
-      'renderer.tsx'
-    ),
-  },
-  plugins: commonPlugins
-    .concat(
-      getBrowserPlugin(
-        'playback-window-bidi'
-      ) as unknown as WebpackPluginInstance
-    )
-    .concat(
-      new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: 'src/browser/*.css',
-            to: '[name].css',
-          },
-        ],
-      })
-    ),
-  target: 'web',
-}
+// const playbackRendererBidiConfig: Configuration = {
+//   ...commonConfig,
+//   entry: {
+//     'playback-window-bidi-renderer': path.join(
+//       __dirname,
+//       'src',
+//       'browser',
+//       'windows',
+//       'renderer.tsx'
+//     ),
+//   },
+//   plugins: commonPlugins
+//     .concat(
+//       getBrowserPlugin(
+//         'playback-window-bidi'
+//       ) as unknown as WebpackPluginInstance
+//     )
+//     .concat(
+//       new CopyWebpackPlugin({
+//         patterns: [
+//           {
+//             from: 'src/browser/*.css',
+//             to: '[name].css',
+//           },
+//         ],
+//       })
+//     ),
+//   target: 'web',
+// }
 
 const mainConfig: Configuration = {
   ...commonConfig,
@@ -196,8 +193,6 @@ const mainConfig: Configuration = {
 export default [
   rendererConfig,
   preloadConfig,
-  playbackPreloadBidiConfig,
-  playbackRendererBidiConfig,
   mainConfig,
 ]
 

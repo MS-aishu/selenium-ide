@@ -1,22 +1,22 @@
 import { readFile } from 'fs/promises'
-import { join } from 'path'
+// import { join } from 'path'
 import type { WebDriver } from 'selenium-webdriver'
 import getScriptManager from 'selenium-webdriver/bidi/scriptManager'
 import { default as LogInspector } from 'selenium-webdriver/bidi/logInspector'
 import { Session } from 'main/types'
 
-let playbackWindowBidiPreload: string
+// let playbackWindowBidiPreload: string
 
 export const createBidiAPIBindings = async (
   session: Session,
   driver: WebDriver
 ) => {
-  if (!playbackWindowBidiPreload) {
-    playbackWindowBidiPreload = await readFile(
-      join(__dirname, `playback-window-bidi-preload-bundle.js`),
-      'utf-8'
-    )
-  }
+  // if (!playbackWindowBidiPreload) {
+  //   playbackWindowBidiPreload = await readFile(
+  //     join(__dirname, `playback-window-bidi-preload-bundle.js`),
+  //     'utf-8'
+  //   )
+  // }
   const logInspector = await LogInspector(driver)
   await logInspector.init()
   logInspector.onConsoleEntry((entry) => {
@@ -31,11 +31,11 @@ export const createBidiAPIBindings = async (
 
   const handle = (await driver.getWindowHandle()) as any
   const scriptManager = await getScriptManager(handle, driver as any)
-  await scriptManager.addPreloadScript(
-    playbackWindowBidiPreload as any,
-    [],
-    false
-  )
+  // await scriptManager.addPreloadScript(
+  //   playbackWindowBidiPreload as any,
+  //   [],
+  //   false
+  // )
   const pluginPreloads = await session.plugins.getPreloads()
   pluginPreloads.forEach(async (preload) => {
     await scriptManager.addPreloadScript(
