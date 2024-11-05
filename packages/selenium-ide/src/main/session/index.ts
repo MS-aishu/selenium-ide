@@ -12,7 +12,6 @@ import ProjectsController from './controllers/Projects'
 import RecorderController from './controllers/Recorder'
 import ResizablePanelsController from './controllers/ResizablePanels'
 import StateController from './controllers/State'
-import SuitesController from './controllers/Suites'
 import SystemController from './controllers/System'
 import TestsController from './controllers/Tests'
 import WindowsController from './controllers/Windows'
@@ -45,7 +44,6 @@ export default async function createSession(app: App): Promise<Session> {
     partialSession as Session
   )
   partialSession.state = new StateController(partialSession as Session)
-  partialSession.suites = new SuitesController(partialSession as Session)
   partialSession.system = new SystemController(partialSession as Session)
   partialSession.tests = new TestsController(partialSession as Session)
   partialSession.windows = new WindowsController(partialSession as Session)

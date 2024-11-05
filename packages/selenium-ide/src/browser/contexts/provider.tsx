@@ -1,4 +1,4 @@
-import subscribeToSession from 'browser/helpers/subscribeToSession'
+  import subscribeToSession from 'browser/helpers/subscribeToSession'
 import React from 'react'
 import * as ActiveCommand from './active-command'
 import * as ActiveTest from './active-test'
@@ -10,8 +10,6 @@ import * as PlaybackTestResults from './playback-test-results'
 import * as Session from './session'
 import * as ShowDrawer from './show-drawer'
 import * as Status from './status'
-import * as SuiteMode from './suite-mode'
-import * as Suites from './suites'
 import * as Tests from './tests'
 
 const contexts = [
@@ -25,8 +23,6 @@ const contexts = [
   PlaybackTestResults,
   ShowDrawer,
   Status,
-  SuiteMode,
-  Suites,
   Tests,
 ]
 

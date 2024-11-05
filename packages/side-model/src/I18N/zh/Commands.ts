@@ -944,6 +944,14 @@ const commands: typeof Commands = {
       description: '要验证的文本',
     },
   },
+  waitForSecond: {
+    name: 'wait for second',
+    description: 'Wait until the given time completes',
+    value: {
+      name: 'wait time',
+      description: '等待的时间（以毫秒为单位）',
+    },
+  },
   while: {
     name: 'while',
     description:

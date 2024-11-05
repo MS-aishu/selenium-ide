@@ -11,27 +11,6 @@
       "path": "./packages/browser-info"
     },
     {
-      "path": "./packages/code-export-csharp-commons"
-    },
-    {
-      "path": "./packages/code-export-csharp-nunit"
-    },
-    {
-      "path": "./packages/code-export-csharp-xunit"
-    },
-    {
-      "path": "./packages/code-export-java-junit"
-    },
-    {
-      "path": "./packages/code-export-javascript-mocha"
-    },
-    {
-      "path": "./packages/code-export-python-pytest"
-    },
-    {
-      "path": "./packages/code-export-ruby-rspec"
-    },
-    {
       "path": "./packages/get-driver"
     },
     {
@@ -44,25 +23,10 @@
       "path": "./packages/side-commons"
     },
     {
-      "path": "./packages/side-example-suite"
-    },
-    {
-      "path": "./packages/side-migrate"
-    },
-    {
       "path": "./packages/side-model"
     },
     {
-      "path": "./packages/side-runner"
-    },
-    {
       "path": "./packages/side-runtime"
-    },
-    {
-      "path": "./packages/side-testkit"
-    },
-    {
-      "path": "./packages/webdriver-testkit"
     }
   ]
 }
