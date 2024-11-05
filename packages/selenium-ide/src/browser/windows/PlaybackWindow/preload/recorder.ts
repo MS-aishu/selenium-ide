@@ -106,6 +106,7 @@ export default class Recorder {
       frameLocation: actualFrameLocation || this.frameLocation,
       winHandleId: this.winHandleId,
     }
+  console.log("inside recorder!!!!!!!!");
     const preprocessors = this.recorderPreprocessors
     for (let i = 0, ii = preprocessors.length; i !== ii; i++) {
       const preprocessor = preprocessors[i]

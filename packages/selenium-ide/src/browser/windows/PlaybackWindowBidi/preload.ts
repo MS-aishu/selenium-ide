@@ -37,7 +37,7 @@ window.sideAPI.resolveAPI = (id: string, ...args: any[]) => {
 }
 window.addEventListener('DOMContentLoaded', async () => {
   setTimeout(async () => {
-    console.debug('Initializing the recorder')
+    console.log('Initializing the recorder')
     const recorder = new Recorder(window, recorderProcessors)
     recorder.attach()
   }, 500)

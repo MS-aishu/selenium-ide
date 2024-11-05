@@ -622,6 +622,11 @@ const commands = {
     target: ArgTypes.locator,
     value: ArgTypes.text,
   },
+  waitForSecond: {
+    name: 'wait for second',
+    description: 'Wait until the given time completes',
+    value: ArgTypes.waitTime,
+  },
   while: {
     name: 'while',
     description: `Create a loop that executes the proceeding commands 

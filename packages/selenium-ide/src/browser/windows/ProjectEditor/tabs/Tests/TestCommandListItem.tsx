@@ -66,6 +66,7 @@ const CommandRow: React.FC<CommandRowProps> = ({
   resetPreview,
   selected,
 }) => {
+  console.log("🚀 ~ command !!!!---> :", command)
   if (typeof command != 'string') {
     command = '//unknown - could not process'
   }

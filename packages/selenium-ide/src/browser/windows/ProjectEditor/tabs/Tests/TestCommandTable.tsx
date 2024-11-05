@@ -27,6 +27,7 @@ const CommandList: FC<CommandListProps> = ({
   disabled,
   selectedCommandIndexes,
 }) => {
+  console.log("🚀 ~ commands in testCommandTable:", commands)
   const intl = useIntl()
   const [preview, reorderPreview, resetPreview] = useReorderPreview(
     commands,

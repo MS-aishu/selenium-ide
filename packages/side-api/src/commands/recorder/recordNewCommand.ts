@@ -85,6 +85,7 @@ export const mutator: Mutator<Shape> = (
     processSelectFrameCommands,
     sessionWithStoreCommands
   )
+  console.log("cmdInput ---------> ",cmdInput);
   const commandIndex = getActiveCommandIndex(sessionWithSelectFrameCommands)
   return addStepsMutator(sessionWithSelectFrameCommands, {
     params: [

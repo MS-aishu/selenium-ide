@@ -60,6 +60,8 @@ export default class RecorderController extends BaseController {
     if (session.state.status !== 'recording' && !overrideRecorder) {
       return null
     }
+    console.log("recordNew Command!!!!!!!!!!!!!!!!!!");
+    console.log("cmd ----------> ",cmd);
     const activeWindowHandleID = getActiveWindowHandleID(session) || 'root'
     const commands = []
     if (cmd.winHandleId && activeWindowHandleID != cmd.winHandleId) {
